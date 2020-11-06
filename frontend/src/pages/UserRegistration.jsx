@@ -18,7 +18,7 @@ class UserRegistration extends Component {
 
     schema = {
         name: Joi.string().required().label('Name'),
-        dob: Joi.date().min('01-01-1900').max('now').required().label('Date of Birth'),    //mm-dd-yyyy
+        dob: Joi.date().max('now').required().label('Date of Birth'),    //mm-dd-yyyy .min('01-01-1900')
         email: Joi.string().email().required().label('Email'),
         password: Joi.string().required().label('Password')
     };
