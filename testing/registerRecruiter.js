@@ -22,7 +22,7 @@ async function registerUser(){
     setTimeout(async () => {
       await driver.quit();
     }, 7000);
-    //this.timeout(5000);
+    
   } catch (error) {
     console.log("error--",error);
   }

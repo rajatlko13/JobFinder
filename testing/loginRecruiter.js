@@ -5,17 +5,24 @@ async function loginRecruiter() {
     driver = await new Builder().forBrowser('firefox').build()
     await driver.manage().window().maximize()
     await driver.get("http://localhost:3000/")
-    await driver.findElement(By.linkText("Login")).click()
-    await driver.findElement(By.id("exampleInputEmail2")).click()
-    await driver.findElement(By.id("exampleInputEmail2")).sendKeys("flipkart@gmail.com")
-    await driver.findElement(By.id("exampleInputPassword2")).click()
-    await driver.findElement(By.id("exampleInputPassword2")).sendKeys("flipkart")
-    await driver.findElement(By.css(".card:nth-child(2) .ui")).click()
-    //await driver.findElement(By.linkText("Home")).click()
-    //await driver.findElement(By.id("root")).click()
+    setTimeout(async () => {
+        await driver.findElement(By.linkText("Login")).click()
+    }, 2000);
+
+    setTimeout(async () => {
+        await driver.findElement(By.id("exampleInputEmail2")).click()
+        await driver.findElement(By.id("exampleInputEmail2")).sendKeys("flipkart@gmail.com")
+        await driver.findElement(By.id("exampleInputPassword2")).click()
+        await driver.findElement(By.id("exampleInputPassword2")).sendKeys("flipkart")
+    }, 5000);
+
+    setTimeout(async () => {
+        await driver.findElement(By.css(".card:nth-child(2) .ui")).click()
+    }, 7000);
+    
     setTimeout(async () => {
         await driver.quit();
-    }, 5000);
+    }, 11000);
 }
 
 loginRecruiter();
