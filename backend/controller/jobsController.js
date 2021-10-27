@@ -6,6 +6,7 @@ const getJobList = async (req,res) => {
         const jobs = await Jobs.find();
         res.json(jobs);
     } catch (error) {
+        console.log(error);
         res.json(error);
     }
 }
@@ -16,6 +17,7 @@ const getJob = async (req,res) => {
         const job = await Jobs.findOne({recruiterId: req.params.recruiterId});
         res.json(job);
     }catch(error){
+        console.log(error);
         res.json(error);
     }
 }
