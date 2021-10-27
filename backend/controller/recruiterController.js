@@ -26,8 +26,8 @@ const get = async (req,res) => {
 const register = async (req,res) => {
     try{
         console.log('in register api');
-        console.log(req.body);
         const salt = await bcrypt.genSalt(10);
+        // Storing the hashed password
         const hashPassword = await bcrypt.hash(req.body.password, salt);
         const newRecruiter = new Recruiter({
             company: req.body.company,
