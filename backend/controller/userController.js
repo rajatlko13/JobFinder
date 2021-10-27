@@ -18,6 +18,7 @@ const get = async (req,res) => {
         const user = await User.findById(req.params.id);
         res.json(user);
     }catch(err){
+        console.log("Error: ", error);
         res.json(err);
     }
 }
@@ -37,6 +38,7 @@ const register = async (req,res) => {
         const user = await newUser.save();
         res.json(user);
     }catch(err){
+        console.log("Error: ",error);
         res.status(400).json({
             error: "Email already registered"
         });
