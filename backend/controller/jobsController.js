@@ -30,6 +30,7 @@ const getSingleJob = async (req,res) => {
         console.log(job);
         res.json(job);
     }catch(err){
+        console.log("Error: ",err);
         res.json(err);
     }
 }
@@ -50,6 +51,7 @@ const addJob = async (req,res) => {
         );
         res.json(job);
     }catch(error){
+        console.log("Error: ",error);
         res.json(error);
     }
 } 
@@ -68,6 +70,7 @@ const updateJob = async (req,res) => {
         );
         res.json(updatedJob);
     }catch(err){
+        console.log("Error: ",err);
         res.json(err);
     }
 }
@@ -81,6 +84,7 @@ const removeJob = async (req,res) => {
         });
         res.json(deletedJob);
     }catch(err){
+        console.log("Error: ",err);
         res.json(err);
     }
 }
