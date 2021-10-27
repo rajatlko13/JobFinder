@@ -7,6 +7,7 @@ const recruiterRoutes = require('./routes/recruiterRoutes');
 const userRoutes = require('./routes/userRoutes');
 const jobsRoutes = require('./routes/jobsRoutes');
 
+// establishing DB connection
 mongoose.connect(process.env.URI, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
 const con = mongoose.connection
 
@@ -26,7 +27,7 @@ app.listen(process.env.PORT,() => {
     console.log('Listening on Port',process.env.PORT);
 });
 
-
+// listing the routes
 app.use('/api/recruiter', recruiterRoutes);
 app.use('/api/user', userRoutes);
 app.use('/api/jobs', jobsRoutes);
