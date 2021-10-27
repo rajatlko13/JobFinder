@@ -2,12 +2,14 @@ const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
+// getting the list of users
 const getList = async (req,res) => {
     try{
         console.log('in getList api');
         const userList = await User.find();
         res.json(userList);
     }catch(err){
+        console.log("Error: ",err);
         res.json(err);
     }
 }
@@ -55,6 +57,7 @@ const update = async (req,res) => {
         const updatedUser = await User.findByIdAndUpdate(req.body._id, user);
         res.json(updatedUser);
     }catch(err){
+        console.log("Error: ",err);
         res.json(err);
     }
 }
@@ -65,6 +68,7 @@ const remove = async (req,res) => {
         const deletedUser = await User.findByIdAndDelete(req.params.id);
         res.json(deletedUser);
     }catch(err){
+        console.log("Error: ",err);
         res.json(err);
     }
 }
@@ -90,6 +94,7 @@ const login = async (req,res) => {
             });
         }
     } catch (error) {
+        console.log("Error: ",error);
         res.status(400).json({                      //400-Bad Request
             'error': 'Unexpected Error'
         });
